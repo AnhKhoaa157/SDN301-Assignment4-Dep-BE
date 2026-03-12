@@ -80,7 +80,28 @@ After running `seedData.js`:
 
 ## 🌐 Deployment
 
-See [DEPLOYMENT.md](../DEPLOYMENT.md) for deployment instructions to Render.
+### Deploy to Render
+
+1. **Quick Setup**:
+   - Push code to GitHub
+   - Create MongoDB Atlas cluster (free tier)
+   - Connect Render to your GitHub repo
+   - Add environment variables: `MONGODB_URI`, `JWT_SECRET`, `CORS_ORIGIN`
+   - Deploy!
+
+2. **Detailed Instructions**: 
+   📖 See [DEPLOYMENT.md](DEPLOYMENT.md) for complete step-by-step guide in Vietnamese.
+
+3. **Environment Variables Required**:
+   - `NODE_ENV=production`
+   - `MONGODB_URI` - MongoDB Atlas connection string
+   - `JWT_SECRET` - Secret key for JWT
+   - `JWT_EXPIRE=7d`
+   - `PORT=10000`
+   - `CORS_ORIGIN` - Frontend URL or `*`
+
+4. **Health Check**:
+   After deployment, test: `GET https://your-app.onrender.com/health`
 
 ## 📦 Dependencies
 

@@ -47,6 +47,17 @@ app.get('/', (req, res) => {
   });
 });
 
+// Health check endpoint for monitoring
+app.get('/health', (req, res) => {
+  const healthCheck = {
+    status: 'OK',
+    uptime: process.uptime(),
+    timestamp: new Date().toISOString(),
+    mongodb: mongoose.connection.readyState === 1 ? 'Connected' : 'Disconnected'
+  };
+  res.status(200).json(healthCheck);
+});
+
 // Error handling middleware
 app.use((err, req, res, next) => {
   console.error(err.stack);
